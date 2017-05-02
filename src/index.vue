@@ -37,7 +37,9 @@ export default {
       this.datepicker = new Datepicker(this.$el, this.config, this.l10n)
       this.popupItem = this.datepicker.calendarContainer
     }
-    this.$watch('config', this.redraw)
+    if (this.config.enableReconfig) {
+      this.$watch('config', this.redraw)
+    }
   },
 
   beforeDestroy () {
